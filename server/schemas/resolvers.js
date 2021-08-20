@@ -52,13 +52,11 @@ const resolvers = {
     
     removeBook: async (parent, { bookId }, context) => {
       if (context.user) {
-        console.log("deleting");
         const updatedUser = await User.findByIdAndUpdate(
           {_id: context.user._id },
           { $pull: { savedBooks: { bookId: bookId } } },
           { new: true },
         );
-        console.log("deleted");
 
         return updatedUser;
 
