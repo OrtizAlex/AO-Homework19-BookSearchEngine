@@ -3,7 +3,7 @@ const path = require('path');
 const { ApolloServer } = require('apollo-server-express');
 const db = require('./config/connection');
 const { typeDefs, resolvers } = require('./schemas');
-const routes = require('./routes');
+//const routes = require('./routes');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -12,12 +12,7 @@ const server = new ApolloServer({
   resolvers,
 });
 
-async function start() {
-  await server.start();
-  server.applyMiddleware({ app });``
-}
-
-start();
+server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
