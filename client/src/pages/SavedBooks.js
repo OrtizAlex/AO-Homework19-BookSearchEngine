@@ -32,9 +32,9 @@ const SavedBooks = () => {
       // if (!response.ok) {
       //   throw new Error('something went wrong!');
       // }
-      await removeBook({
-        variables: {bookId: bookId}
-      })
+      const {data} = await removeBook({
+        variables: { bookId }
+      });
 
       // upon success, remove book's id from localStorage
       removeBookId(bookId);

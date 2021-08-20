@@ -40,7 +40,7 @@ export const SAVE_BOOK = gql`
             _id
             username
             email
-            createdBooks {
+            savedBooks {
                 bookId
                 authors
                 image
